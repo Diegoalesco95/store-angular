@@ -2,8 +2,6 @@
 <!-- string Interpolation -->
 {{ title }}
 
-<app-product></app-product>
-
 <div *ngIf="title === 'Diego'">
   Este es Diego
 </div>
@@ -39,8 +37,8 @@
 
 <!-- ngfor for objects -->
 <div *ngFor="let product of products">
-  {{ product.title }}
-  <img [src]="product.image" [alt]="product.title" />
-  {{ product.description }}
-  {{ product.price }}
+  <app-product
+    (productClicked)="clickProduct($event)"
+    [product]="product"
+  ></app-product>
 </div>
