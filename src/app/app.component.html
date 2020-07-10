@@ -2,6 +2,9 @@
 <!-- string Interpolation -->
 {{ title }}
 
+<input type="text" [(ngModel)]="power" />
+{{ power | exponential }}
+
 <div *ngIf="title === 'Diego'">
   Este es Diego
 </div>
