@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'demo',
     component: DemoComponent,
   },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({
