@@ -1,0 +1,13 @@
+nav a {
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+  &.active {
+    background-color: black;
+    color: white;
+  }
+}
+
+li {
+  list-style: none;
+}

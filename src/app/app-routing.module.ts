@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -24,8 +25,13 @@ const routes: Routes = [
     component: DemoComponent,
   },
   {
-    path: '**',
+    path: '',
     redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
   },
 ];
 
