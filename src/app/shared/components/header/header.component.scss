@@ -1,13 +1,12 @@
-nav a {
+nav > a {
   padding: 5px;
   text-decoration: none;
-  color: black;
   &.active {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
   }
 }
 
-li {
-  list-style: none;
+.header-row {
+  width: 100%;
 }
