@@ -42,4 +42,24 @@ export class ProductDetailComponent implements OnInit {
       console.log(product);
     });
   }
+
+  updateProduct() {
+    const editProduct: Partial<Product> = {
+      title: 'Practical Rubber Ball',
+      price: 210.0,
+      description:
+        'Eos laborum debitis ut et consequatur. Beatae qui rerum explicabo aut velit hic aut necessitatibus. Quia et et. Quibusdam qui non in numquam veritatis hic explicabo culpa.',
+    };
+    this.productsService
+      .updateProduct('009', editProduct)
+      .subscribe((product) => {
+        console.log(product);
+      });
+  }
+
+  deleteProduct() {
+    this.productsService.deleteProduct('009').subscribe((answer) => {
+      console.log(answer);
+    });
+  }
 }
