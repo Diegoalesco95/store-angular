@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        // canActivate: [AdminGuard],
+        canActivate: [AdminGuard],
         loadChildren: () =>
           import('./components/product/product.module').then(
             (m) => m.ProductModule
@@ -30,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: 'contact',
-        // canActivate: [AdminGuard],
+        canActivate: [AdminGuard],
         loadChildren: () =>
           import('./components/contact/contact.module').then(
             (m) => m.ContactModule
@@ -38,7 +38,7 @@ const routes: Routes = [
       },
       {
         path: 'demo',
-        // canActivate: [AdminGuard],
+        canActivate: [AdminGuard],
         loadChildren: () =>
           import('./components/demo/demo.module').then((m) => m.DemoModule),
       },
