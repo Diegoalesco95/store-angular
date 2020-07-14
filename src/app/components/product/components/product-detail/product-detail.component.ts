@@ -29,4 +29,17 @@ export class ProductDetailComponent implements OnInit {
       this.product = product;
     });
   }
+
+  createProduct() {
+    const newProduct: Product = {
+      id: '009',
+      title: 'Handcrafted Granite Bike',
+      image: 'assets/images/stickers2.png',
+      price: 163.0,
+      description: 'Ut quam totam nam vitae et',
+    };
+    this.productsService.createProduct(newProduct).subscribe((product) => {
+      console.log(product);
+    });
+  }
 }
