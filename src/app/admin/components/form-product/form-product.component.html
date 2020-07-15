@@ -1,17 +1,54 @@
-<form [formGroup]="form">
-  <mat-form-field>
-    <input formControlname="id" matInput type="text" />
-  </mat-form-field>
-  <mat-form-field>
-    <input formControlname="title" matInput type="text" />
-  </mat-form-field>
-  <mat-form-field>
-    <input formControlname="price" matInput type="number" />
-  </mat-form-field>
-  <!-- <mat-form-field>
-    <input formControlname="image" matInput type="text" />
-  </mat-form-field> -->
-  <mat-form-field>
-    <input formControlname="description" matInput type="text" />
-  </mat-form-field>
+<form [formGroup]="form" (ngSubmit)="saveProduct($event)">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Product</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input placeholder="Id" formControlName="id" matInput type="text" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input
+              placeholder="Title"
+              formControlName="title"
+              matInput
+              type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input
+              placeholder="Price"
+              formControlName="price"
+              matInput
+              type="number"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <textarea
+              placeholder="Description"
+              formControlName="description"
+              matInput
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button type="submit">Save</button>
+    </mat-card-actions>
+  </mat-card>
 </form>
