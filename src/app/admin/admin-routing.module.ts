@@ -7,12 +7,22 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import { ProductsHomeComponent } from './components/products-home/products-home.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
   {
     path: '',
     component: NavComponent,
     children: [
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+      },
       {
         path: 'dashboard',
         component: DashboardComponent,

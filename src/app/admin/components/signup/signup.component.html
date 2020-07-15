@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="signupUser($event)">
+  <mat-card class="center-xs">
+    <mat-card-header>
+      <mat-card-title class="center-xs">
+        Signup
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input
+              placeholder="Email"
+              formControlName="email"
+              type="email"
+              matInput
+            />
+          </mat-form-field>
+          <div *ngIf="form.get('email').errors && form.get('email').touched">
+            <mat-error *ngIf="form.get('email').hasError('email')"
+              >Enter a valid email</mat-error
+            >
+            <mat-error *ngIf="form.get('email').hasError('required')"
+              >The email is required</mat-error
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input
+              placeholder="Password"
+              formControlName="password"
+              type="password"
+              matInput
+            />
+          </mat-form-field>
+          <div
+            *ngIf="form.get('password').errors && form.get('password').touched"
+          >
+            <mat-error *ngIf="form.get('password').hasError('required')"
+              >The password is required</mat-error
+            >
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="form.invalid" mat-raised-button type="submit">
+        Sign up
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

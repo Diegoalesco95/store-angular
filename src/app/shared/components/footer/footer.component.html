@@ -52,7 +52,11 @@
           >
             Subscribe
           </button>
-          <p *ngIf="emailField.invalid">El campo no es válido</p>
+          <div *ngIf="emailField.errors && emailField.dirty">
+            <mat-error *ngIf="emailField.invalid"
+              >The email is invalid</mat-error
+            >
+          </div>
         </div>
       </div>
     </div>
