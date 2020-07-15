@@ -9,6 +9,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
+import { ProductsHomeComponent } from './components/products-home/products-home.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
     DashboardComponent,
     ListProductsComponent,
     ProductListComponent,
+    FormProductComponent,
+    ProductsHomeComponent,
   ],
   imports: [
     CommonModule,
