@@ -11,8 +11,7 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { ProductsHomeComponent } from './components/products-home/products-home.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
+
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
 @NgModule({
@@ -24,8 +23,7 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
     ProductListComponent,
     FormProductComponent,
     ProductsHomeComponent,
-    LoginComponent,
-    SignupComponent,
+
     ProductEditComponent,
   ],
   imports: [

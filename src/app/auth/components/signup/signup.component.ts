@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.buildForm();
   }
 
@@ -22,12 +27,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  loginUser(event: Event) {
+  signupUser(event: Event) {
     event.preventDefault();
     if (this.form.valid) {
       const user = this.form.value;
-      console.log(user);
-      this.router.navigate(['./admin/dashboard']);
+      this.authService
+        .createUser(user.email, user.password)
+        .then(() => this.router.navigate(['./admin/login']));
     }
   }
 }

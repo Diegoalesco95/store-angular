@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "store-angular-6a3e9": {
+      "hosting": {
+        "store-angular": [
+          "store-angular-6a3e9"
+        ]
+      }
+    }
+  }
+}
