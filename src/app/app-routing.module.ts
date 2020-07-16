@@ -29,6 +29,11 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'order',
+        loadChildren: () =>
+          import('./components/order/order.module').then((m) => m.OrderModule),
+      },
+      {
         path: 'contact',
         canActivate: [AdminGuard],
         loadChildren: () =>

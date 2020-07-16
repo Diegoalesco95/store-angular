@@ -18,4 +18,10 @@ export class CartService {
     this.products = [...this.products, product];
     this.cart.next(this.products);
   }
+
+  deleteCart(product: Product) {
+    const index = this.products.indexOf(product);
+    this.products.splice(index, 1);
+    this.cart.next(this.products);
+  }
 }

@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { MaterialModule } from '../material/material.module';
+import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,14 @@ import { MaterialModule } from '../material/material.module';
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
+    GroupProductsPipe,
   ],
   exports: [
     ExponentialPipe,
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
+    GroupProductsPipe,
   ],
   imports: [CommonModule, RouterModule, MaterialModule, ReactiveFormsModule],
 })
