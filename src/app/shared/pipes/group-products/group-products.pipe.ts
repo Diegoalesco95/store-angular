@@ -5,30 +5,21 @@ import { Product } from 'src/app/core/models/product.model';
   name: 'groupProducts',
 })
 export class GroupProductsPipe implements PipeTransform {
-  groupedProducts: any[] = [];
-
   transform(value: Product[]): any {
+    const groupedProducts: any[] = [];
     value.forEach((product) => {
-      if (this.groupedProducts.length === 0) {
-        this.groupedProducts.push(
-          Object.assign(product, { quantity: 1, amount: product.price })
-        );
-      } else {
-        const repeatedProduct = this.groupedProducts.findIndex(
-          (p) => p.id === product.id
-        );
-        if (repeatedProduct === -1) {
-          this.groupedProducts.push(
-            Object.assign(product, { quantity: 1, amount: product.price })
-          );
-        } else {
-          this.groupedProducts[repeatedProduct].quantity++;
-          this.groupedProducts[repeatedProduct].amount =
-            this.groupedProducts[repeatedProduct].quantity *
-            this.groupedProducts[repeatedProduct].price;
-        }
+      const quantity = value.reduce(
+        (acum, elem) => (product.id === elem.id ? acum + 1 : acum),
+        0
+      );
+      if (!groupedProducts.some((p) => p.id === product.id)) {
+        groupedProducts.push({
+          ...product,
+          quantity,
+          amount: quantity * product.price,
+        });
       }
     });
-    return this.groupedProducts;
+    return groupedProducts;
   }
 }

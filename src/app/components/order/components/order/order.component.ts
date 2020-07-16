@@ -25,11 +25,27 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addCart(product: Product) {
+  addCart(product: any) {
+    product.quantity = 0;
+    product.amount = 0;
     this.cartService.addCart(product);
   }
 
-  deleteCart(product: Product) {
+  deleteCart(product: any) {
+    product.quantity--;
+    product.amount = product.quantity * product.price;
     this.cartService.deleteCart(product);
+  }
+
+  getTotalQuantity(products: any) {
+    return products
+      .map((p: any) => p.quantity)
+      .reduce((acc: any, value: any) => acc + value, 0);
+  }
+
+  getTotalPrice(products: any) {
+    return products
+      .map((p: any) => p.amount)
+      .reduce((acc: any, value: any) => acc + value, 0);
   }
 }

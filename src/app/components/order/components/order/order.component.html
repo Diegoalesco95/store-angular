@@ -6,10 +6,12 @@
     <div *ngIf="products$ | async | groupProducts as products">
       <p *ngIf="products.length === 0">You cart is empty</p>
       <table
+        *ngIf="products.length !== 0"
         mat-table
         [dataSource]="products"
         class="mat-elevation-z8 products-table"
       >
+        <!-- Image Column -->
         <ng-container matColumnDef="image">
           <th mat-header-cell *matHeaderCellDef>Item</th>
           <td mat-cell *matCellDef="let product">
@@ -19,31 +21,45 @@
               [alt]="product.title"
             />
           </td>
+          <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
+        <!-- Title Column -->
         <ng-container matColumnDef="title">
           <th mat-header-cell *matHeaderCellDef>Title</th>
           <td mat-cell *matCellDef="let product">
             {{ product.title }}
           </td>
+          <td mat-footer-cell *matFooterCellDef>Total</td>
         </ng-container>
+        <!-- Amount Column -->
         <ng-container matColumnDef="amount">
           <th mat-header-cell *matHeaderCellDef>Quantity</th>
           <td mat-cell *matCellDef="let product">
             {{ product.quantity }}
           </td>
+          <td mat-footer-cell *matFooterCellDef>
+            {{ getTotalQuantity(products) }}
+          </td>
         </ng-container>
+        <!-- Unit Column -->
         <ng-container matColumnDef="unit-price">
           <th mat-header-cell *matHeaderCellDef>Unit Price</th>
           <td mat-cell *matCellDef="let product">
             {{ product.price | currency }}
           </td>
+          <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
+        <!-- Total Column -->
         <ng-container matColumnDef="total-price">
           <th mat-header-cell *matHeaderCellDef>Total Price</th>
           <td mat-cell *matCellDef="let product">
             {{ product.amount | currency }}
           </td>
+          <td mat-footer-cell *matFooterCellDef>
+            {{ getTotalPrice(products) | currency }}
+          </td>
         </ng-container>
+        <!-- Actions Column -->
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Actions</th>
           <td mat-cell *matCellDef="let product">
@@ -62,9 +78,11 @@
               -
             </button>
           </td>
+          <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
       </table>
     </div>
   </mat-step>

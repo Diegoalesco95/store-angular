@@ -16,12 +16,14 @@ export class CartService {
 
   addCart(product: Product) {
     this.products = [...this.products, product];
+    //  Notify a change
     this.cart.next(this.products);
   }
 
   deleteCart(product: Product) {
     const index = this.products.indexOf(product);
     this.products.splice(index, 1);
+    //  Notify a change
     this.cart.next(this.products);
   }
 }
