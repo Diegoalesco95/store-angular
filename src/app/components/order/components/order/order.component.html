@@ -85,18 +85,28 @@
         <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
       </table>
     </div>
+    <div>
+      <button mat-raised-button color="primary" matStepperNext>Next</button>
+    </div>
   </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>
-      Personal Information
+      Shipping Information
     </ng-template>
-    <h1>Content</h1>
+    <app-order-information></app-order-information>
+    <div>
+      <button mat-raised-button color="basic" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" matStepperNext>Next</button>
+    </div>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>
-      Payment
+      Payment information
     </ng-template>
-    <h1>Content</h1>
+    <app-payment-information></app-payment-information>
+    <div>
+      <button mat-raised-button color="basic" matStepperPrevious>Back</button>
+    </div>
   </mat-step>
 </mat-horizontal-stepper>

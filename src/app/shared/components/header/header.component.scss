@@ -4,7 +4,9 @@
 
 nav > a {
   padding: 5px;
+  margin: 0;
   text-decoration: none;
+
   &.active {
     background-color: white;
     color: black;
@@ -13,4 +15,14 @@ nav > a {
 
 .header-row {
   width: 100%;
+}
+
+@media (min-width: 576px) {
+  .header-row {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+  nav a {
+    margin: 0 16px;
+  }
 }

@@ -1,0 +1,70 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Shipping Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Card number"
+              formControlName="cardNumber"
+              type="number"
+            />
+          </mat-form-field>
+          <mat-error
+            *ngIf="addressForm.controls['cardNumber'].hasError('required')"
+          >
+            Card number is <strong>required</strong>
+          </mat-error>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="MM / AA"
+              formControlName="date"
+              type="datetime"
+            />
+            <mat-error
+              *ngIf="addressForm.controls['date'].hasError('required')"
+            >
+              MM / AA is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="CVC" formControlName="cvc" />
+            <mat-error *ngIf="addressForm.controls['cvc'].hasError('required')">
+              CVC is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea
+              matInput
+              placeholder="Card name"
+              formControlName="name"
+            ></textarea>
+            <mat-error
+              *ngIf="addressForm.controls['name'].hasError('required')"
+            >
+              Card name <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
