@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { HomeRoutingModule } from './page-not-found-routing.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 

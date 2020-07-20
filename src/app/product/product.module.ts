@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { ProductRoutingModule } from './product-routing.module';
 
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductsContainer } from './containers/products/products.container';
 
-import { MaterialModule } from 'src/app/material/material.module';
+import { MaterialModule } from '@material/material.module';
 
 @NgModule({
   declarations: [ProductComponent, ProductDetailComponent, ProductsContainer],
