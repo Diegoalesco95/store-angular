@@ -15,7 +15,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PaymentInformationComponent } from './components/payment-information/payment-information.component';
 
 @NgModule({
-  declarations: [OrderComponent, OrderInformationComponent, PaymentInformationComponent],
-  imports: [CommonModule, OrderRoutingModule, SharedModule, MaterialModule, MatInputModule, MatButtonModule, MatSelectModule, MatRadioModule, MatCardModule, ReactiveFormsModule],
+  declarations: [
+    OrderComponent,
+    OrderInformationComponent,
+    PaymentInformationComponent,
+  ],
+  imports: [
+    CommonModule,
+    OrderRoutingModule,
+    SharedModule,
+    MaterialModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+  ],
 })
 export class OrderModule {}
