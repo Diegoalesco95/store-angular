@@ -5,12 +5,12 @@ import { ProductRoutingModule } from './product-routing.module';
 
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { ProductsComponent } from './components/products/products.component';
+import { ProductsContainer } from './containers/products/products.container';
 
 import { MaterialModule } from 'src/app/material/material.module';
 
 @NgModule({
-  declarations: [ProductComponent, ProductDetailComponent, ProductsComponent],
+  declarations: [ProductComponent, ProductDetailComponent, ProductsContainer],
   imports: [CommonModule, SharedModule, ProductRoutingModule, MaterialModule],
 })
 export class ProductModule {}
