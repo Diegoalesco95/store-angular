@@ -50,6 +50,14 @@
       <button [disabled]="form.invalid" mat-raised-button type="submit">
         Log in
       </button>
+      <button
+        [disabled]="form.invalid"
+        mat-raised-button
+        type="button"
+        (click)="loginApi()"
+      >
+        Log in with API
+      </button>
     </mat-card-actions>
   </mat-card>
 </form>
