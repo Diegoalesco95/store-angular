@@ -3,56 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from '../../models/product.model';
 
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+interface User {
+  email: string;
+  gender: string;
+  phone: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  // products: Product[] = [
-  //   {
-  //     id: '1',
-  //     image: 'assets/images/camiseta.png',
-  //     title: 'Camiseta',
-  //     price: 80000,
-  //     description: 'bla bla bla bla bla',
-  //   },
-  //   {
-  //     id: '2',
-  //     image: 'assets/images/hoodie.png',
-  //     title: 'Hoodie',
-  //     price: 80000,
-  //     description: 'bla bla bla bla bla',
-  //   },
-  //   {
-  //     id: '3',
-  //     image: 'assets/images/mug.png',
-  //     title: 'Mug',
-  //     price: 80000,
-  //     description: 'bla bla bla bla bla',
-  //   },
-  //   {
-  //     id: '4',
-  //     image: 'assets/images/pin.png',
-  //     title: 'Pin',
-  //     price: 80000,
-  //     description: 'bla bla bla bla bla',
-  //   },
-  //   {
-  //     id: '5',
-  //     image: 'assets/images/stickers1.png',
-  //     title: 'Stickers',
-  //     price: 80000,
-  //     description: 'bla bla bla bla bla',
-  //   },
-  //   {
-  //     id: '6',
-  //     image: 'assets/images/stickers2.png',
-  //     title: 'Stickers',
-  //     price: 80000,
-  //     description: 'bla bla bla bla bla',
-  //   },
-  // ];
-
   constructor(private http: HttpClient) {}
 
   getAllProducts() {
@@ -73,5 +36,13 @@ export class ProductsService {
 
   deleteProduct(id: string) {
     return this.http.delete(`${environment.url_api}${id}`);
+  }
+
+  // Example for types requests
+
+  getRandomUsers(): Observable<User[]> {
+    return this.http
+      .get('https://randomuser.me/api/?results=2')
+      .pipe(map((response: any) => response.results as User[]));
   }
 }

@@ -56,4 +56,12 @@ export class ProductDetailComponent implements OnInit {
       console.log(answer);
     });
   }
+
+  // Example for types requests
+
+  getRandomUsers() {
+    this.productsService.getRandomUsers().subscribe((users) => {
+      console.log(users);
+    });
+  }
 }
