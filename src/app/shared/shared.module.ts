@@ -7,7 +7,7 @@ import { HighlightDirective } from './directives/highlight/highlight.directive';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '@material/material.module';
 import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
 
 @NgModule({

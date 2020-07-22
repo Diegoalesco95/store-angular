@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ProductsService } from 'src/app/core/services/products/products.service';
-import { Product } from 'src/app/core/models/product.model';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { ProductsService } from '@core/services/products/products.service';
+import { Product } from '@core/models/product.model';
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,7 +12,7 @@ import { Product } from 'src/app/core/models/product.model';
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
-  product: Product;
+  product$: Observable<Product>;
 
   constructor(
     private route: ActivatedRoute,
@@ -17,17 +20,9 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
-      const id = params.id;
-      this.fetchProduct(id);
-      // this.product = this.productsService.getProduct(id);
-    });
-  }
-
-  fetchProduct(id: string) {
-    this.productsService.getProduct(id).subscribe((product) => {
-      this.product = product;
-    });
+    this.product$ = this.route.params.pipe(
+      switchMap((params: Params) => this.productsService.getProduct(params.id))
+    );
   }
 
   createProduct() {
@@ -60,6 +55,30 @@ export class ProductDetailComponent implements OnInit {
   deleteProduct() {
     this.productsService.deleteProduct('009').subscribe((answer) => {
       console.log(answer);
+    });
+  }
+
+  // Example for types requests
+
+  getRandomUsers() {
+    this.productsService.getRandomUsers().subscribe(
+      (users) => {
+        console.log(users);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  // Example for get a file
+
+  getFile() {
+    this.productsService.getFile().subscribe((content) => {
+      const file = new File([content], 'Test.txt', {
+        type: 'text/plain;charset=utf-8',
+      });
+      FileSaver.saveAs(file);
     });
   }
 }

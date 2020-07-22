@@ -1,4 +1,4 @@
-<mat-card *ngIf="product">
+<mat-card *ngIf="product$ | async as product">
   <mat-card-header>
     <mat-card-title> {{ product.title | uppercase }} </mat-card-title>
     <mat-card-subtitle>
@@ -22,6 +22,12 @@
     </button>
     <button (click)="deleteProduct()" mat-raised-button color="primary">
       Delete
+    </button>
+    <button (click)="getRandomUsers()" mat-raised-button color="primary">
+      Get User
+    </button>
+    <button (click)="getFile()" mat-raised-button color="primary">
+      Get File
     </button>
   </mat-card-actions>
 </mat-card>

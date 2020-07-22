@@ -18,32 +18,28 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () =>
-          import('./components/home/home.module').then((m) => m.HomeModule),
+          import('./home/home.module').then((m) => m.HomeModule),
       },
       {
         path: 'products',
         loadChildren: () =>
-          import('./components/product/product.module').then(
-            (m) => m.ProductModule
-          ),
+          import('./product/product.module').then((m) => m.ProductModule),
       },
       {
         path: 'order',
         loadChildren: () =>
-          import('./components/order/order.module').then((m) => m.OrderModule),
+          import('./order/order.module').then((m) => m.OrderModule),
       },
       {
         path: 'contact',
         loadChildren: () =>
-          import('./components/contact/contact.module').then(
-            (m) => m.ContactModule
-          ),
+          import('./contact/contact.module').then((m) => m.ContactModule),
       },
       {
         path: 'demo',
         canActivate: [AdminGuard],
         loadChildren: () =>
-          import('./components/demo/demo.module').then((m) => m.DemoModule),
+          import('./demo/demo.module').then((m) => m.DemoModule),
       },
     ],
   },
@@ -60,7 +56,7 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () =>
-      import('./components/page-not-found/page-not-found.module').then(
+      import('./page-not-found/page-not-found.module').then(
         (m) => m.PageNotFoundModule
       ),
   },
