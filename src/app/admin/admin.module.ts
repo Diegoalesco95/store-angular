@@ -23,7 +23,6 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
     ProductListComponent,
     FormProductComponent,
     ProductsHomeComponent,
-
     ProductEditComponent,
   ],
   imports: [
