@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 
 import { AuthInterceptor } from './auth.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent, CartComponent, LayoutComponent],
@@ -35,6 +36,7 @@ import { AuthInterceptor } from './auth.interceptor';
     AngularFireAuthModule,
     AngularFireStorageModule,
     QuicklinkModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     {
