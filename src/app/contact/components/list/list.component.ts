@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { EmployeeData } from '@core/models/employee.model';
 
@@ -11,6 +11,8 @@ export class ListComponent implements OnInit {
   @Input() title: string;
   @Input() data: EmployeeData[] = [];
 
+  @Output() add = new EventEmitter<string>();
+
   label: string;
 
   constructor() {}
@@ -18,10 +20,7 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {}
 
   addItem() {
-    this.data.push({
-      label: this.label,
-      num: 30,
-    });
+    this.add.emit(this.label);
     this.label = '';
   }
 }
