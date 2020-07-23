@@ -34,7 +34,7 @@ export class LayoutComponent implements OnInit {
   addItem(list: EmployeeData[], label: string) {
     list.unshift({
       label,
-      num: this.generatorService.generateNumber([10, 15]),
+      num: this.generatorService.generateNumber([10, 20]),
     });
   }
 }
