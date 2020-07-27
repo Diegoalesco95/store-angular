@@ -18,9 +18,8 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  @HostListener('window:beforeinstallprompt', ['Sevent'])
+  @HostListener('window:beforeinstallprompt', ['$event'])
   onBeforeInstallPrompt(event: Event) {
-    console.log(event);
     event.preventDefault();
     this.installEvent = event;
   }

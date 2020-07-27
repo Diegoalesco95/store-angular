@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { QuicklinkModule } from 'ngx-quicklink';
 
@@ -36,7 +38,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFireAuthModule,
     AngularFireStorageModule,
     QuicklinkModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireMessagingModule,
+    AngularFirestoreModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [
     {
