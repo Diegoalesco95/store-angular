@@ -12,7 +12,7 @@ const fibonacci = (num: number): number => {
 })
 export class FibonacciPipe implements PipeTransform {
   transform(value: number): any {
-    console.log('calc');
+    // console.log('calc');
 
     return fibonacci(value);
   }
