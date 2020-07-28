@@ -6,6 +6,9 @@
         >Products</a
       >
       <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+      <button mat-raised-button (click)="installByUser()" *ngIf="installEvent">
+        Install App
+      </button>
     </nav>
     <a
       routerLink="/order"

@@ -31,9 +31,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
   // sub$: Subscription;
 
   constructor(private generatorService: GeneratorService) {
-    this.value$ = this.generatorService
-      .getData()
-      .pipe(tap((num) => console.log(num)));
+    this.value$ = this.generatorService.getData();
+    // .pipe(tap((num) => console.log(num)));
   }
 
   ngOnInit() {
@@ -47,7 +46,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('destroy');
+    // console.log('destroy');
     // this.sub$.unsubscribe();
   }
 
