@@ -57,14 +57,11 @@ export class AppComponent implements OnInit {
 
   requestPermission() {
     this.messaging.requestToken.subscribe((token) => {
-      console.log(token);
       this.tokenCollection.add({ token });
     });
   }
 
   listenNotifications() {
-    this.messaging.messages.subscribe((message) => {
-      console.log(message);
-    });
+    this.messaging.messages.subscribe((message) => {});
   }
 }

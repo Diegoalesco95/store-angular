@@ -1,13 +1,13 @@
 @import "~@angular/material/theming";
 
-$primary: mat-palette($mat-purple);
+$primary: mat-palette($mat-purple, 700);
 
 footer {
   padding: 50px 10px;
   margin-top: 24px;
   background-color: mat-color($primary);
   .box {
-    h3 {
+    h2 {
       color: white;
       border-bottom: 1px solid white;
     }
